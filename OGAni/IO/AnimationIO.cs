@@ -16,7 +16,7 @@ namespace OGAni.IO
 
         public static void Save(AnimationCollection a, string path)
         {
-            using (StreamWriter w = new StreamWriter(path))
+            using (StreamWriter w = new StreamWriter(path, false))
             {
                 w.WriteLine(a.name);
                 foreach (Frame f in a.allFrames)
@@ -32,6 +32,11 @@ namespace OGAni.IO
 
         public static AnimationCollection Load(string path)
         {
+            using (StreamReader r = new StreamReader(path))
+            {
+                //TODO: load
+            }
+
             return new AnimationCollection();
         }
     }

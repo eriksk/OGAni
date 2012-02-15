@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////////////////
+    Date: 2012-02-11 16:36:39
+Assembly: TomShane.Neoforce.Controls.dll
+ Version: 0.7.2407.1915
+ Message: Manager.RenderTarget has to be specified. Assign a render target or set Manager.AutoCreateRenderTarget property to true.
+////////////////////////////////////////////////////////////////
+   at TomShane.Neoforce.Controls.Manager.Draw(GameTime gameTime)
+   at OGAniEditor.Game1.Draw(GameTime gameTime) in F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\Game1.cs:line 61
+   at Microsoft.Xna.Framework.Game.DrawFrame()
+   at Microsoft.Xna.Framework.Game.Tick()
+   at Microsoft.Xna.Framework.Game.HostIdle(Object sender, EventArgs e)
+   at Microsoft.Xna.Framework.GameHost.OnIdle()
+   at Microsoft.Xna.Framework.WindowsGameHost.RunOneFrame()
+   at Microsoft.Xna.Framework.WindowsGameHost.ApplicationIdle(Object sender, EventArgs e)
+   at System.Windows.Forms.Application.ThreadContext.System.Windows.Forms.UnsafeNativeMethods.IMsoComponent.FDoIdle(Int32 grfidlef)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.Run(Form mainForm)
+   at Microsoft.Xna.Framework.WindowsGameHost.Run()
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at OGAniEditor.Program.Main(String[] args) in F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\Program.cs:line 15
+////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////
+    Date: 2012-02-11 16:36:57
+Assembly: TomShane.Neoforce.Controls.dll
+ Version: 0.7.2407.1915
+ Message: Manager.RenderTarget has to be specified. Assign a render target or set Manager.AutoCreateRenderTarget property to true.
+////////////////////////////////////////////////////////////////
+   at TomShane.Neoforce.Controls.Manager.Draw(GameTime gameTime)
+   at OGAniEditor.Game1.Draw(GameTime gameTime) in F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\Game1.cs:line 62
+   at Microsoft.Xna.Framework.Game.DrawFrame()
+   at Microsoft.Xna.Framework.Game.Tick()
+   at Microsoft.Xna.Framework.Game.HostIdle(Object sender, EventArgs e)
+   at Microsoft.Xna.Framework.GameHost.OnIdle()
+   at Microsoft.Xna.Framework.WindowsGameHost.RunOneFrame()
+   at Microsoft.Xna.Framework.WindowsGameHost.ApplicationIdle(Object sender, EventArgs e)
+   at System.Windows.Forms.Application.ThreadContext.System.Windows.Forms.UnsafeNativeMethods.IMsoComponent.FDoIdle(Int32 grfidlef)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.Run(Form mainForm)
+   at Microsoft.Xna.Framework.WindowsGameHost.Run()
+   at Microsoft.Xna.Framework.Game.RunGame(Boolean useBlockingRun)
+   at Microsoft.Xna.Framework.Game.Run()
+   at OGAniEditor.Program.Main(String[] args) in F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\Program.cs:line 15
+////////////////////////////////////////////////////////////////
+

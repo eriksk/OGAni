@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGAni", "OGAni\OGAni.csproj", "{16D22524-8042-40B9-8E17-F17C6C78B156}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OGAniEditor", "OGAniEditor\OGAniEditor\OGAniEditor.csproj", "{745C0FCB-531C-43B0-AF3E-CB42DBB1F772}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "OGAniEditorContent", "OGAniEditor\OGAniEditorContent\OGAniEditorContent.contentproj", "{BB97949C-30CB-4998-9271-04E4BA2D9077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +17,12 @@ Global
 		{16D22524-8042-40B9-8E17-F17C6C78B156}.Debug|x86.Build.0 = Debug|x86
 		{16D22524-8042-40B9-8E17-F17C6C78B156}.Release|x86.ActiveCfg = Release|x86
 		{16D22524-8042-40B9-8E17-F17C6C78B156}.Release|x86.Build.0 = Release|x86
+		{745C0FCB-531C-43B0-AF3E-CB42DBB1F772}.Debug|x86.ActiveCfg = Debug|x86
+		{745C0FCB-531C-43B0-AF3E-CB42DBB1F772}.Debug|x86.Build.0 = Debug|x86
+		{745C0FCB-531C-43B0-AF3E-CB42DBB1F772}.Release|x86.ActiveCfg = Release|x86
+		{745C0FCB-531C-43B0-AF3E-CB42DBB1F772}.Release|x86.Build.0 = Release|x86
+		{BB97949C-30CB-4998-9271-04E4BA2D9077}.Debug|x86.ActiveCfg = Debug|x86
+		{BB97949C-30CB-4998-9271-04E4BA2D9077}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,6 @@
+F:\Documents\xnaprojects\OGAni\OGAni\bin\x86\Debug\OGAni.dll
+F:\Documents\xnaprojects\OGAni\OGAni\bin\x86\Debug\OGAni.pdb
+F:\Documents\xnaprojects\OGAni\OGAni\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\xnaprojects\OGAni\OGAni\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+F:\Documents\xnaprojects\OGAni\OGAni\obj\x86\Debug\OGAni.dll
+F:\Documents\xnaprojects\OGAni\OGAni\obj\x86\Debug\OGAni.pdb
