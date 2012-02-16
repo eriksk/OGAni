@@ -1,8 +1,7 @@
 F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\bin\x86\Debug\OGAniEditor.exe
 F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\bin\x86\Debug\OGAniEditor.pdb
-F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\bin\x86\Debug\OGAni.dll
-F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\bin\x86\Debug\OGAni.pdb
 F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\obj\x86\Debug\ResolveAssemblyReference.cache
 F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\obj\x86\Debug\OGAniEditor.exe
 F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\obj\x86\Debug\OGAniEditor.pdb
+F:\Documents\xnaprojects\OGAni\OGAniEditor\OGAniEditor\bin\x86\Debug\OGAniEditor.exe.config

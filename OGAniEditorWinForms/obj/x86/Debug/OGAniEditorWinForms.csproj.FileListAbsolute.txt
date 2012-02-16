@@ -1,0 +1,16 @@
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAniEditorWinForms.exe
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAniEditorWinForms.pdb
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\OGAniEditorWinForms.Editor.resources
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\OGAniEditorWinForms.Form1.resources
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\OGAniEditorWinForms.Properties.Resources.resources
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\OGAniEditorWinForms.exe
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\OGAniEditorWinForms.pdb
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\OGAniEditorWinForms.Animations.resources
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAniEditorWinForms.exe.config
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAni.dll
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAniEditor.exe
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAniEditor.pdb
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAni.pdb

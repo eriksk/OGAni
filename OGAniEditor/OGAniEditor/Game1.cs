@@ -15,14 +15,33 @@ namespace OGAniEditor
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private IntPtr drawSurface;
+
+        public Game1(IntPtr drawSurface)
+        {
+            graphics = new GraphicsDeviceManager(this);
+            Content.RootDirectory = "Content";
+            this.drawSurface = drawSurface;
+            graphics.PreparingDeviceSettings += new EventHandler<PreparingDeviceSettingsEventArgs>(graphics_PreparingDeviceSettings);
+            System.Windows.Forms.Control.FromHandle((this.Window.Handle)).VisibleChanged += new EventHandler(Game1_VisibleChanged);
+        }
+
+        void Game1_VisibleChanged(object sender, EventArgs e)
+        {
+            if (System.Windows.Forms.Control.FromHandle((this.Window.Handle)).Visible == true)
+            {
+                System.Windows.Forms.Control.FromHandle((this.Window.Handle)).Visible = false;
+            }
+        }
+        void graphics_PreparingDeviceSettings(object sender, PreparingDeviceSettingsEventArgs e)
+        {
+            e.GraphicsDeviceInformation.PresentationParameters.DeviceWindowHandle = drawSurface;
+        }
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
-            graphics.ApplyChanges();
         }
 
         protected override void Initialize()
@@ -46,10 +65,11 @@ namespace OGAniEditor
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            
+
+
             base.Update(gameTime);
         }
-        
+
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
