@@ -74,6 +74,18 @@ namespace OGAniEditorWinForms
 
         }
 
+        private void loadToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select a .png";
+            ofd.ShowDialog();
+            string path = ofd.FileName;
+            if (!string.IsNullOrEmpty(path))
+            {
+                game.SetTexture(path);
+            }
+        }
+
         #endregion
 
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OGAni.Entities;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace OGAni.Frames
 {
@@ -19,6 +20,14 @@ namespace OGAni.Frames
         {
             this.parts = parts;
             this.name = name;
+        }
+
+        public void SetTexture(Texture2D texture)
+        {
+            for (int i = 0; i < parts.Count; i++)
+            {
+                parts[i].texture = texture;
+            }
         }
 
         public string ToSaveString()

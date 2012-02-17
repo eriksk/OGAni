@@ -29,7 +29,7 @@ namespace OGAni.Animations
             this.keyFrames = keyFrames;
             this.name = name;
         }
-
+        
         public void Reset()
         {
             current = 0f;
@@ -78,5 +78,6 @@ namespace OGAni.Animations
             
             return s;
         }
+
     }
 }

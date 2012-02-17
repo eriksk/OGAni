@@ -109,8 +109,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Game1.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +118,10 @@
     <Content Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\OGAni\OGAni.csproj">
+      <Project>{16D22524-8042-40B9-8E17-F17C6C78B156}</Project>
+      <Name>OGAni</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OGAniEditorContent\OGAniEditorContent.contentproj">
       <Name>OGAniEditorContent</Name>
       <XnaReferenceType>Content</XnaReferenceType>
