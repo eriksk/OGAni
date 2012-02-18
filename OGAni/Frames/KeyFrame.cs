@@ -13,23 +13,27 @@ namespace OGAni.Frames
     public class KeyFrame
     {
         protected Frame frame;
-        protected string scripts;
+        protected string[] scripts;
         protected KeyFrameScript script;
-        public string name;
         public float duration;
 
         public KeyFrame()
-            :this(null, 0f, "KeyFrame", "")
+            :this(null, 0f, new string[0])
         {
         }
 
-        public KeyFrame(Frame frameRef, float duration, string name, string scripts)
+        public KeyFrame(Frame frameRef, float duration, string[] scripts)
         {
             this.frame = frameRef;
             this.duration = duration;
-            this.name = name;
             this.scripts = scripts;
             this.script = new KeyFrameScript(scripts);
+        }
+
+        public string[] Scripts
+        {
+            get { return scripts; }
+            set { scripts = value; }
         }
 
         public void RunScript()
@@ -50,7 +54,7 @@ namespace OGAni.Frames
         {
             string s = "";
 
-            s += name + "\n";
+            s += frame.name + "\n";
             s += duration.ToString(CultureInfo.InvariantCulture) + "\n";
             s += scripts.Length + "\n";
             for (int i = 0; i < scripts.Length; i++)
@@ -59,6 +63,11 @@ namespace OGAni.Frames
             }
             
             return s;
+        }
+
+        public override string ToString()
+        {
+            return frame == null ? "" : frame.name;
         }
     }
 }

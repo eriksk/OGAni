@@ -37,6 +37,11 @@ namespace OGAni.Animations
             currentFrame = 0;
         }
 
+        public List<KeyFrame> KeyFrames
+        {
+            get { return keyFrames; }
+        }
+
         public virtual void Update(float time)
         {
             if(keyFrames.Count > 0)
@@ -80,5 +85,9 @@ namespace OGAni.Animations
             return s;
         }
 
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

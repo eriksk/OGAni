@@ -14,3 +14,4 @@ F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAni.dll
 F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAniEditor.exe
 F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAniEditor.pdb
 F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\bin\Debug\OGAni.pdb
+F:\Documents\xnaprojects\OGAni\OGAniEditorWinForms\obj\x86\Debug\OGAniEditorWinForms.EditBox.resources

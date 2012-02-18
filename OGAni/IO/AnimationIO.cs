@@ -19,10 +19,13 @@ namespace OGAni.IO
             using (StreamWriter w = new StreamWriter(path, false))
             {
                 w.WriteLine(a.name);
+                w.WriteLine(a.texture);
+                w.WriteLine(a.allFrames.Count);
                 foreach (Frame f in a.allFrames)
                 {
                     w.WriteLine(f.ToSaveString());
                 }
+                w.WriteLine(a.animations.Count);
                 foreach (Animation ani in a.animations)
                 {
                     w.WriteLine(ani.ToSaveString());
@@ -34,7 +37,7 @@ namespace OGAni.IO
         {
             using (StreamReader r = new StreamReader(path))
             {
-                //TODO: load
+
             }
 
             return new AnimationCollection();

@@ -92,6 +92,7 @@ namespace OGAniEditor
             {
                 Texture2D texture = Texture2D.FromStream(GraphicsDevice, File.OpenRead(path));
                 currentTexture = texture;
+                animations.texture = path.Split('/').Last();
                 foreach (Frame f in animations.allFrames)
 	            {
 		            f.SetTexture(texture);                
@@ -109,6 +110,20 @@ namespace OGAniEditor
             f.SetTexture(currentTexture);
             animations.allFrames.Add(f);
             return f;
+        }
+        
+        public Animation NewAni()
+        {
+            Animation a = new Animation();
+            animations.animations.Add(a);
+            return a;
+        }
+
+        public KeyFrame NewKeyFrame(Animation ani, Frame frame)
+        {
+            KeyFrame kf = new KeyFrame(frame, 300, new string[]{"#add script"});
+            ani.KeyFrames.Add(kf);
+            return kf;
         }
 
         public void SelectFrame(Frame f)
@@ -173,7 +188,7 @@ namespace OGAniEditor
 
             #region Transformation
 
-            if (key.IsKeyUp(Keys.LeftControl))
+            if (key.IsKeyUp(Keys.LeftShift))
             {
                 if (selectedFrame != null)
                 {
@@ -210,19 +225,47 @@ namespace OGAniEditor
                     }
                     else
                     {
-                        if (oldkey.IsKeyUp(Keys.Left) && key.IsKeyDown(Keys.Left))
+                        //Select
+                        if (oldkey.IsKeyUp(Keys.D1) && key.IsKeyDown(Keys.D1))
                         {
                             selectedPart--;
                             if(selectedPart < 0){
                                 selectedPart = selectedFrame.parts.Count - 1;
                             }
                         }
-                        if (oldkey.IsKeyUp(Keys.Right) && key.IsKeyDown(Keys.Right))
+                        if (oldkey.IsKeyUp(Keys.D2) && key.IsKeyDown(Keys.D2))
                         {
                             selectedPart++;
                             if(selectedPart > selectedFrame.parts.Count - 1){
                                 selectedPart = selectedFrame.parts.Count == 0 ? -1 : 0;
                             }
+                        }
+
+                        //Sort order
+
+                        if (oldkey.IsKeyUp(Keys.D3) && key.IsKeyDown(Keys.D3))
+                        {
+                            int target = selectedPart - 1;
+                            if (target > -1)
+                            {
+                                //Swap
+                                Entity temp = selectedFrame.parts[selectedPart];
+                                selectedFrame.parts[selectedPart] = selectedFrame.parts[target];
+                                selectedFrame.parts[target] = temp;
+                                selectedPart--;
+                            }                                
+                        }
+                        if (oldkey.IsKeyUp(Keys.D4) && key.IsKeyDown(Keys.D4))
+                        {
+                            int target = selectedPart + 1;
+                            if (target < selectedFrame.parts.Count)
+                            {
+                                //Swap
+                                Entity temp = selectedFrame.parts[selectedPart];
+                                selectedFrame.parts[selectedPart] = selectedFrame.parts[target];
+                                selectedFrame.parts[target] = temp;
+                                selectedPart++;
+                            }                                
                         }
                     }
 
@@ -290,17 +333,16 @@ namespace OGAniEditor
             if (selectedFrame != null)
             {
                 spriteBatch.Begin();
-                selectedFrame.Draw(spriteBatch, framePos);
-                if (selectedPart != -1)
+                if (currentTexture != null)
                 {
-                    Entity part = selectedFrame.parts[selectedPart];
-                    Rectangle rect = part.FullRect;
-                    rect.X += (int)framePos.X;
-                    rect.Y += (int)framePos.Y;
-                    spriteBatch.DrawOutline(pixel, rect, Color.Yellow);
+                    selectedFrame.Draw(spriteBatch, framePos);
+                    if (selectedPart != -1)
+                    {
+                        Entity part = selectedFrame.parts[selectedPart];
+                        Rectangle r = new Rectangle((int)(part.position.X - part.origin.X) + (int)framePos.X, (int)(part.position.Y - part.origin.Y) + (int)framePos.Y, (int)part.origin.X * 2, (int)part.origin.Y * 2);
+                        spriteBatch.Draw(pixel, r, Color.Red * 0.1f);                       
+                    }
                 }
-                //TODO: draw borders
-                //TODO: don't draw if texture is unset
                 spriteBatch.End();
             }
 

@@ -54,6 +54,12 @@
     <Compile Include="Animations.Designer.cs">
       <DependentUpon>Animations.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditBox.Designer.cs">
+      <DependentUpon>EditBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Animations.resx">
       <DependentUpon>Animations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditBox.resx">
+      <DependentUpon>EditBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor.resx">
       <DependentUpon>Editor.cs</DependentUpon>

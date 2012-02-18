@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using OGAniEditor;
+using OGAni.Animations;
 
 namespace OGAniEditorWinForms
 {
@@ -57,12 +58,32 @@ namespace OGAniEditorWinForms
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (path != "")
+            {
+                Save();
+            }
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = sfd.FileName;
+                Save();
+            }
+        }
 
+        private void Save()
+        {
+            try
+            {
+                OGAni.IO.AnimationIO.Save(game.Animations, path);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -72,7 +93,7 @@ namespace OGAniEditorWinForms
 
         private void openAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void layoutToolStripMenuItem_Click(object sender, EventArgs e)

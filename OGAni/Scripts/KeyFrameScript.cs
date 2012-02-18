@@ -7,9 +7,9 @@ namespace OGAni.Scripts
 {
     public class KeyFrameScript
     {
-        protected string script;
+        protected string[] script;
 
-        public KeyFrameScript(string script)
+        public KeyFrameScript(string[] script)
         {
             this.script = script;
         }

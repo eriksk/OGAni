@@ -30,24 +30,23 @@
         {
             this.listBoxAnimations = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCloneAnimation = new System.Windows.Forms.Button();
+            this.buttonDeleteAnimation = new System.Windows.Forms.Button();
+            this.buttonNewAnimation = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBoxFrames = new System.Windows.Forms.ListBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.buttonKeyframe = new System.Windows.Forms.Button();
             this.buttonDeleteFrame = new System.Windows.Forms.Button();
             this.buttonNewFrame = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.buttonSaveKeyframe = new System.Windows.Forms.Button();
+            this.richTextBoxScript = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDuration = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.buttonDeleteKeyframe = new System.Windows.Forms.Button();
+            this.listBoxKeyframes = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -62,12 +61,14 @@
             this.listBoxAnimations.Size = new System.Drawing.Size(191, 212);
             this.listBoxAnimations.Sorted = true;
             this.listBoxAnimations.TabIndex = 0;
+            this.listBoxAnimations.SelectedIndexChanged += new System.EventHandler(this.listBoxAnimations_SelectedIndexChanged);
+            this.listBoxAnimations.DoubleClick += new System.EventHandler(this.listBoxAnimations_DoubleClick);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.buttonCloneAnimation);
+            this.groupBox1.Controls.Add(this.buttonDeleteAnimation);
+            this.groupBox1.Controls.Add(this.buttonNewAnimation);
             this.groupBox1.Controls.Add(this.listBoxAnimations);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -76,37 +77,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animations";
             // 
-            // button3
+            // buttonCloneAnimation
             // 
-            this.button3.Location = new System.Drawing.Point(150, 237);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(47, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Clone";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonCloneAnimation.Location = new System.Drawing.Point(150, 237);
+            this.buttonCloneAnimation.Name = "buttonCloneAnimation";
+            this.buttonCloneAnimation.Size = new System.Drawing.Size(47, 23);
+            this.buttonCloneAnimation.TabIndex = 1;
+            this.buttonCloneAnimation.Text = "Clone";
+            this.buttonCloneAnimation.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonDeleteAnimation
             // 
-            this.button2.Location = new System.Drawing.Point(56, 237);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(47, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonDeleteAnimation.Location = new System.Drawing.Point(56, 237);
+            this.buttonDeleteAnimation.Name = "buttonDeleteAnimation";
+            this.buttonDeleteAnimation.Size = new System.Drawing.Size(47, 23);
+            this.buttonDeleteAnimation.TabIndex = 1;
+            this.buttonDeleteAnimation.Text = "Delete";
+            this.buttonDeleteAnimation.UseVisualStyleBackColor = true;
+            this.buttonDeleteAnimation.Click += new System.EventHandler(this.buttonDeleteAnimation_Click);
             // 
-            // button1
+            // buttonNewAnimation
             // 
-            this.button1.Location = new System.Drawing.Point(6, 237);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "New";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonNewAnimation.Location = new System.Drawing.Point(6, 237);
+            this.buttonNewAnimation.Name = "buttonNewAnimation";
+            this.buttonNewAnimation.Size = new System.Drawing.Size(44, 23);
+            this.buttonNewAnimation.TabIndex = 1;
+            this.buttonNewAnimation.Text = "New";
+            this.buttonNewAnimation.UseVisualStyleBackColor = true;
+            this.buttonNewAnimation.Click += new System.EventHandler(this.buttonNewAnimation_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.listBoxFrames);
-            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.buttonKeyframe);
             this.groupBox2.Controls.Add(this.buttonDeleteFrame);
             this.groupBox2.Controls.Add(this.buttonNewFrame);
             this.groupBox2.Location = new System.Drawing.Point(221, 12);
@@ -126,15 +129,17 @@
             this.listBoxFrames.Sorted = true;
             this.listBoxFrames.TabIndex = 0;
             this.listBoxFrames.SelectedIndexChanged += new System.EventHandler(this.listBoxFrames_SelectedIndexChanged);
+            this.listBoxFrames.DoubleClick += new System.EventHandler(this.listBoxFrames_DoubleClick);
             // 
-            // button6
+            // buttonKeyframe
             // 
-            this.button6.Location = new System.Drawing.Point(112, 237);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(85, 23);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Keyframe";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonKeyframe.Location = new System.Drawing.Point(112, 237);
+            this.buttonKeyframe.Name = "buttonKeyframe";
+            this.buttonKeyframe.Size = new System.Drawing.Size(85, 23);
+            this.buttonKeyframe.TabIndex = 1;
+            this.buttonKeyframe.Text = "Keyframe";
+            this.buttonKeyframe.UseVisualStyleBackColor = true;
+            this.buttonKeyframe.Click += new System.EventHandler(this.buttonKeyframe_Click);
             // 
             // buttonDeleteFrame
             // 
@@ -158,15 +163,14 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button10);
-            this.groupBox3.Controls.Add(this.richTextBox1);
+            this.groupBox3.Controls.Add(this.buttonSaveKeyframe);
+            this.groupBox3.Controls.Add(this.richTextBoxScript);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.textBoxDuration);
             this.groupBox3.Controls.Add(this.button7);
-            this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.button9);
-            this.groupBox3.Controls.Add(this.listBox1);
+            this.groupBox3.Controls.Add(this.buttonDeleteKeyframe);
+            this.groupBox3.Controls.Add(this.listBoxKeyframes);
             this.groupBox3.Location = new System.Drawing.Point(12, 289);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(406, 271);
@@ -174,22 +178,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Keyframes";
             // 
-            // button10
+            // buttonSaveKeyframe
             // 
-            this.button10.Location = new System.Drawing.Point(351, 237);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(49, 23);
-            this.button10.TabIndex = 7;
-            this.button10.Text = "Save";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonSaveKeyframe.Location = new System.Drawing.Point(351, 237);
+            this.buttonSaveKeyframe.Name = "buttonSaveKeyframe";
+            this.buttonSaveKeyframe.Size = new System.Drawing.Size(49, 23);
+            this.buttonSaveKeyframe.TabIndex = 7;
+            this.buttonSaveKeyframe.Text = "Save";
+            this.buttonSaveKeyframe.UseVisualStyleBackColor = true;
+            this.buttonSaveKeyframe.Click += new System.EventHandler(this.buttonSaveKeyframe_Click);
             // 
-            // richTextBox1
+            // richTextBoxScript
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(209, 74);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(191, 157);
-            this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
+            this.richTextBoxScript.Location = new System.Drawing.Point(209, 74);
+            this.richTextBoxScript.Name = "richTextBoxScript";
+            this.richTextBoxScript.Size = new System.Drawing.Size(191, 157);
+            this.richTextBoxScript.TabIndex = 6;
+            this.richTextBoxScript.Text = "";
             // 
             // label2
             // 
@@ -209,12 +214,12 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Duration";
             // 
-            // textBox1
+            // textBoxDuration
             // 
-            this.textBox1.Location = new System.Drawing.Point(209, 35);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBoxDuration.Location = new System.Drawing.Point(209, 35);
+            this.textBoxDuration.Name = "textBoxDuration";
+            this.textBoxDuration.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDuration.TabIndex = 2;
             // 
             // button7
             // 
@@ -225,33 +230,25 @@
             this.button7.Text = "Clone";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // buttonDeleteKeyframe
             // 
-            this.button8.Location = new System.Drawing.Point(56, 237);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(47, 23);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Delete";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonDeleteKeyframe.Location = new System.Drawing.Point(6, 237);
+            this.buttonDeleteKeyframe.Name = "buttonDeleteKeyframe";
+            this.buttonDeleteKeyframe.Size = new System.Drawing.Size(47, 23);
+            this.buttonDeleteKeyframe.TabIndex = 1;
+            this.buttonDeleteKeyframe.Text = "Delete";
+            this.buttonDeleteKeyframe.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // listBoxKeyframes
             // 
-            this.button9.Location = new System.Drawing.Point(6, 237);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(44, 23);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "New";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(191, 212);
-            this.listBox1.Sorted = true;
-            this.listBox1.TabIndex = 0;
+            this.listBoxKeyframes.FormattingEnabled = true;
+            this.listBoxKeyframes.Location = new System.Drawing.Point(6, 19);
+            this.listBoxKeyframes.Name = "listBoxKeyframes";
+            this.listBoxKeyframes.ScrollAlwaysVisible = true;
+            this.listBoxKeyframes.Size = new System.Drawing.Size(191, 212);
+            this.listBoxKeyframes.Sorted = true;
+            this.listBoxKeyframes.TabIndex = 0;
+            this.listBoxKeyframes.SelectedIndexChanged += new System.EventHandler(this.listBoxKeyframes_SelectedIndexChanged);
             // 
             // Animations
             // 
@@ -277,23 +274,22 @@
 
         private System.Windows.Forms.ListBox listBoxAnimations;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCloneAnimation;
+        private System.Windows.Forms.Button buttonDeleteAnimation;
+        private System.Windows.Forms.Button buttonNewAnimation;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox listBoxFrames;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonKeyframe;
         private System.Windows.Forms.Button buttonDeleteFrame;
         private System.Windows.Forms.Button buttonNewFrame;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button buttonDeleteKeyframe;
+        private System.Windows.Forms.ListBox listBoxKeyframes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.TextBox textBoxDuration;
+        private System.Windows.Forms.Button buttonSaveKeyframe;
+        private System.Windows.Forms.RichTextBox richTextBoxScript;
     }
 }
