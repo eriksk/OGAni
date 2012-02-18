@@ -28,6 +28,8 @@ namespace OGAniEditor
 
         AnimationCollection animations;
         private int selectedAnimation = -1;
+        private Frame selectedFrame;
+        private int selectedPart = -1;
         
         #region Setup
 
@@ -91,6 +93,19 @@ namespace OGAniEditor
             }
         }
 
+        public Frame NewFrame()
+        {
+            Frame f = new Frame();
+            f.SetTexture(currentTexture);
+            animations.allFrames.Add(f);
+            return f;
+        }
+
+        public void SelectFrame(Frame f)
+        {
+            selectedFrame = f;
+        }
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -143,6 +158,14 @@ namespace OGAniEditor
             if (selectedAnimation > -1)
             {
                 animations.animations[selectedAnimation].Draw(spriteBatch);
+            }
+
+            if (selectedFrame != null)
+            {
+                spriteBatch.Begin();
+                selectedFrame.Draw(spriteBatch);
+                //TODO: draw borders
+                spriteBatch.End();
             }
 
             if (key.IsKeyDown(Keys.LeftShift))

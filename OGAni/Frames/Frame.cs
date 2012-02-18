@@ -30,6 +30,29 @@ namespace OGAni.Frames
             }
         }
 
+        public void Draw(SpriteBatch sb)
+        {
+            foreach (Entity e in parts)
+            {
+                e.Draw(sb);
+            }
+        }
+
+        public void Draw(SpriteBatch sb, bool debug, Texture2D pixel)
+        {
+            if (debug)
+            {
+                foreach (Entity e in parts)
+                {
+                    e.Draw(sb);
+                }
+            }
+            else
+            {
+                Draw(sb);
+            }
+        }
+
         public string ToSaveString()
         {
             string s = "";
@@ -42,6 +65,11 @@ namespace OGAni.Frames
             }
 
             return s;
+        }
+
+        public override string ToString()
+        {
+            return name;
         }
     }
 }
