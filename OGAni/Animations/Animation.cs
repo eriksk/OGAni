@@ -6,6 +6,7 @@ using OGAni.Frames;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using OGAni.Entities;
+using Microsoft.Xna.Framework;
 
 namespace OGAni.Animations
 {
@@ -55,12 +56,12 @@ namespace OGAni.Animations
             }
         }
 
-        public void Draw(SpriteBatch sb)
+        public void Draw(SpriteBatch sb, Vector2 position)
         {
             if (keyFrames.Count > 0)
             {
                 KeyFrame kf = keyFrames[currentFrame];
-                kf.Draw(sb);
+                kf.Draw(sb, position);
             }
         }
 

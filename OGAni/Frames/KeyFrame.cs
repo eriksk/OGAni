@@ -6,6 +6,7 @@ using OGAni.Scripts;
 using Microsoft.Xna.Framework.Graphics;
 using OGAni.Entities;
 using System.Globalization;
+using Microsoft.Xna.Framework;
 
 namespace OGAni.Frames
 {
@@ -36,12 +37,12 @@ namespace OGAni.Frames
             script.Run();
         }
 
-        public void Draw(SpriteBatch sb)
+        public void Draw(SpriteBatch sb, Vector2 position)
         {
             for (int i = 0; i < frame.parts.Count; i++)
             {
                 Entity f = frame.parts[i];
-                f.Draw(sb);
+                f.Draw(sb, position);
             }
         }
 

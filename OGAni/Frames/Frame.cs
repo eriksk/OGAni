@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OGAni.Entities;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace OGAni.Frames
 {
@@ -30,26 +31,11 @@ namespace OGAni.Frames
             }
         }
 
-        public void Draw(SpriteBatch sb)
+        public void Draw(SpriteBatch sb, Vector2 position)
         {
             foreach (Entity e in parts)
             {
-                e.Draw(sb);
-            }
-        }
-
-        public void Draw(SpriteBatch sb, bool debug, Texture2D pixel)
-        {
-            if (debug)
-            {
-                foreach (Entity e in parts)
-                {
-                    e.Draw(sb);
-                }
-            }
-            else
-            {
-                Draw(sb);
+                e.Draw(sb, position);
             }
         }
 

@@ -20,6 +20,11 @@ namespace OGAniEditorWinForms
         public Form1()
         {
             InitializeComponent();
+            ani.StartPosition = FormStartPosition.Manual;
+            ani.Location = new Point(15, 30);
+            editor.StartPosition = FormStartPosition.Manual;
+            editor.Location = new Point(500, 30);
+
             editor.MdiParent = this;
             editor.Show();
             ani.MdiParent = this;
@@ -28,6 +33,7 @@ namespace OGAniEditorWinForms
 
             toolStripStatusLabel1.Text = "No file loaded";
         }
+
 
         void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -87,6 +93,7 @@ namespace OGAniEditorWinForms
         }
 
         #endregion
+
 
     }
 }
