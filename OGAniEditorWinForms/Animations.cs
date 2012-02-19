@@ -25,6 +25,21 @@ namespace OGAniEditorWinForms
             get { return (MdiParent as Form1).game; }
         }
 
+        public void Clear()
+        {
+            listBoxAnimations.Items.Clear();
+            listBoxFrames.Items.Clear();
+            listBoxKeyframes.Items.Clear();
+            textBoxDuration.Text = "";
+            richTextBoxScript.Text = "";
+        }
+
+        public void SetAnimationCollection(AnimationCollection aniColl)
+        {
+            listBoxFrames.Items.AddRange(aniColl.allFrames.ToArray());
+            listBoxAnimations.Items.AddRange(aniColl.animations.ToArray());
+        }
+
         #region Events
 
         private void buttonNewFrame_Click(object sender, EventArgs e)

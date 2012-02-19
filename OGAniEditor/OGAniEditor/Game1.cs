@@ -76,6 +76,16 @@ namespace OGAniEditor
             }
         }
 
+        public void Clear()
+        {
+            selectedFrame = null;
+            animations = null;
+            selectedPart = -1;
+            selectedAnimation = -1;
+            textureOffset = Vector2.Zero;
+            currentTexture = null;
+        }
+
         /// <summary>
         /// Resets the game
         /// </summary>
@@ -379,6 +389,7 @@ namespace OGAniEditor
 
             base.Draw(gameTime);
         }
+
 
     }
 }

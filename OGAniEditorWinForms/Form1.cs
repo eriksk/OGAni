@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using OGAniEditor;
 using OGAni.Animations;
+using OGAni.IO;
 
 namespace OGAniEditorWinForms
 {
@@ -88,12 +89,34 @@ namespace OGAniEditorWinForms
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select a character file.";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = ofd.FileName;
+                LoadAnimationCollection();
+            }
         }
 
-        private void openAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadAnimationCollection()
         {
-            
+            //Clear everything
+            game.Clear();
+            ani.Clear();
+
+            //Load
+            try
+            {
+                AnimationCollection aniColl = AnimationIO.Load(path);
+                ani.SetAnimationCollection(aniColl);
+                game.Animations = aniColl;
+                //Set texture
+                game.SetTexture(aniColl.texture);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void layoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -113,8 +136,11 @@ namespace OGAniEditorWinForms
             }
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         #endregion
-
-
     }
 }

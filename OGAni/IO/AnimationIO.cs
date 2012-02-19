@@ -133,7 +133,7 @@ namespace OGAni.IO
                         keyframes.Add(new KeyFrame(allFrames[frameIdx], duration, scripts));
                     }
 
-                    animations.Add(new Animation(keyframes, name));
+                    animations.Add(new Animation(keyframes, animName));
                 }
             }
 
