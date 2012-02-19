@@ -51,6 +51,7 @@ namespace OGAniEditorWinForms
         private void buttonDeleteFrame_Click(object sender, EventArgs e)
         {
             Frame f = (Frame)listBoxFrames.SelectedItem;
+            //TODO: delete frames from keyframes
             if (f != null)
             {
                 listBoxFrames.Items.Remove(f);
@@ -111,7 +112,9 @@ namespace OGAniEditorWinForms
             if (ani != null)
             {
                 ani.KeyFrames.ForEach(i => listBoxKeyframes.Items.Add(i));
-            }            
+            
+            }
+            ani.Reset();
         }
 
         private void listBoxAnimations_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,6 +177,17 @@ namespace OGAniEditorWinForms
                 listBoxAnimations.Items.Clear();
                 Game.Animations.animations.ForEach(i => listBoxAnimations.Items.Add(i));
                 listBoxAnimations.SelectedItem = a;
+            }
+        }
+
+        private void buttonDeleteKeyframe_Click(object sender, EventArgs e)
+        {
+            Animation a = (Animation)listBoxAnimations.SelectedItem;
+            KeyFrame kf = (KeyFrame)listBoxKeyframes.SelectedItem;
+            if (a != null && kf != null)
+            {
+                a.KeyFrames.Remove(kf);
+                UpdateKeyFrames();
             }
         }
     }

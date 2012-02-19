@@ -34,6 +34,19 @@ namespace OGAni.Entities
             origin = new Vector2(source.Width / 2f, source.Height / 2f);
         }
 
+        public Entity Clone()
+        {
+            return new Entity()
+            {
+                texture = texture,
+                Source = source,
+                position = position,
+                rotation = rotation,
+                scale = scale,
+                flipped = flipped
+            };
+        }
+
         public Rectangle Source
         {
             get { return source; }

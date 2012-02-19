@@ -23,6 +23,17 @@ namespace OGAni.Frames
             this.name = name;
         }
 
+        public Frame Clone()
+        {
+            List<Entity> fps = new List<Entity>();
+            foreach (Entity e in parts)
+            {
+                fps.Add(e.Clone());
+            }
+            Frame f = new Frame(fps, name);
+            return f;
+        }
+
         public void SetTexture(Texture2D texture)
         {
             for (int i = 0; i < parts.Count; i++)

@@ -238,6 +238,7 @@
             this.buttonDeleteKeyframe.TabIndex = 1;
             this.buttonDeleteKeyframe.Text = "Delete";
             this.buttonDeleteKeyframe.UseVisualStyleBackColor = true;
+            this.buttonDeleteKeyframe.Click += new System.EventHandler(this.buttonDeleteKeyframe_Click);
             // 
             // listBoxKeyframes
             // 

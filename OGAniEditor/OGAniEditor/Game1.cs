@@ -116,7 +116,13 @@ namespace OGAniEditor
 
         public Frame NewFrame()
         {
+            //Clone if selected
             Frame f = new Frame();
+            if (selectedFrame != null)
+            {
+                f = selectedFrame.Clone();
+            }
+
             f.SetTexture(currentTexture);
             animations.allFrames.Add(f);
             return f;
