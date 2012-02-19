@@ -33,8 +33,8 @@ namespace OGAniEditor
         private Frame selectedFrame;
         private int selectedPart = -1;
 
-
-        Vector2 framePos = new Vector2(1280 / 2, 720 / 2);
+        Vector2 animPos = new Vector2(1280 - 200, 720 - 200);
+        Vector2 framePos = new Vector2(1280 / 2, 720 - 100);
         
         #region Setup
 
@@ -126,9 +126,20 @@ namespace OGAniEditor
             return kf;
         }
 
+        public void DeselectAnimation()
+        {
+            selectedAnimation = -1;
+        }
+
         public void SelectFrame(Frame f)
         {
             selectedFrame = f;
+            selectedPart = -1;
+        }
+        
+        public void SelectAni(Animation ani)
+        {
+            selectedAnimation = animations.animations.IndexOf(ani);
         }
 
         protected override void Initialize()
@@ -327,12 +338,17 @@ namespace OGAniEditor
             
             if (selectedAnimation > -1)
             {
-                animations.animations[selectedAnimation].Draw(spriteBatch, new Vector2(1000, 15));
+                spriteBatch.Begin();
+                animations.animations[selectedAnimation].Draw(spriteBatch, animPos);
+                spriteBatch.End();
             }
 
             if (selectedFrame != null)
             {
                 spriteBatch.Begin();
+                //Floor line
+                spriteBatch.Draw(pixel, new Rectangle(0, (int)framePos.Y, 1280, 1), Color.Black);
+                spriteBatch.Draw(pixel, new Rectangle((int)framePos.X, 0, 1, 720), Color.Black);
                 if (currentTexture != null)
                 {
                     selectedFrame.Draw(spriteBatch, framePos);
@@ -363,5 +379,6 @@ namespace OGAniEditor
 
             base.Draw(gameTime);
         }
+
     }
 }

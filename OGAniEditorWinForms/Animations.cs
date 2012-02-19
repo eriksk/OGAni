@@ -67,6 +67,7 @@ namespace OGAniEditorWinForms
             {
                 listBoxAnimations.Items.Remove(ani);
                 Game.Animations.animations.Remove(ani);
+                Game.DeselectAnimation();
                 //Select first again
                 if (listBoxAnimations.Items.Count > 0)
                 {
@@ -100,6 +101,11 @@ namespace OGAniEditorWinForms
 
         private void listBoxAnimations_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Animation ani = (Animation)listBoxAnimations.SelectedItem;
+            if (ani != null)
+            {
+                Game.SelectAni(ani);
+            }
             UpdateKeyFrames();
         }
 

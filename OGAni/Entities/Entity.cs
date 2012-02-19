@@ -57,18 +57,5 @@ namespace OGAni.Entities
                     flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
                     1f);
         }
-
-        public string ToSaveString()
-        {
-            string s = "";
-
-            s += source.X + ":" + source.Y + ":" + source.Width + ":" + source.Height + "\n";
-            s += position.X.ToString(CultureInfo.InvariantCulture) + ":" + position.Y.ToString(CultureInfo.InvariantCulture) + "\n";
-            s += rotation.ToString(CultureInfo.InvariantCulture) + "\n";
-            s += scale.ToString(CultureInfo.InvariantCulture) + "\n";
-            s += flipped.ToString() + "\n";
-
-            return s;
-        }
     }
 }

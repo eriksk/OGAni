@@ -5,6 +5,9 @@ using System.Text;
 using OGAni.Animations;
 using System.IO;
 using OGAni.Frames;
+using OGAni.Entities;
+using System.Globalization;
+using Microsoft.Xna.Framework;
 
 namespace OGAni.IO
 {
@@ -18,29 +21,123 @@ namespace OGAni.IO
         {
             using (StreamWriter w = new StreamWriter(path, false))
             {
-                w.WriteLine(a.name);
-                w.WriteLine(a.texture);
+                //Metadata separate by |
+                w.WriteLine(a.name + "|" + a.texture);
+                
+                //1. Framecount
                 w.WriteLine(a.allFrames.Count);
+                
+                //2. Frames
                 foreach (Frame f in a.allFrames)
                 {
-                    w.WriteLine(f.ToSaveString());
+                    w.WriteLine(f.name);
+                    //2.1 Parts
+                    w.WriteLine(f.parts.Count);
+                    foreach (Entity e in f.parts)
+                    {
+                        w.WriteLine(e.position.X.ToString(CultureInfo.InvariantCulture) + "|" + e.position.Y.ToString(CultureInfo.InvariantCulture));
+                        w.WriteLine(e.rotation.ToString(CultureInfo.InvariantCulture));
+                        w.WriteLine(e.scale.ToString(CultureInfo.InvariantCulture));
+                        w.WriteLine(e.flipped); 
+                        w.WriteLine(e.Source.X + "|" + e.Source.Y + "|" + e.Source.Width + "|" + e.Source.Height);
+                    }
                 }
+                
+                //3. AnimationCount
                 w.WriteLine(a.animations.Count);
+
+                //4. Animations
                 foreach (Animation ani in a.animations)
                 {
-                    w.WriteLine(ani.ToSaveString());
+                    w.WriteLine(ani.name);
+                    //4.1 Keyframes
+                    w.WriteLine(ani.KeyFrames.Count);
+                    foreach (KeyFrame kf in ani.KeyFrames)
+                    {
+                        w.WriteLine(a.allFrames.IndexOf(kf.Frame));
+                        w.WriteLine(kf.Duration.ToString(CultureInfo.InvariantCulture));
+                        //4.1.1 Scripts
+                        w.WriteLine(kf.Scripts.Length);
+                        foreach (string s in kf.Scripts)
+                        {
+                            w.WriteLine(s);
+                        }
+                    }
                 }
             }
         }
 
         public static AnimationCollection Load(string path)
         {
-            using (StreamReader r = new StreamReader(path))
-            {
+            string name = "";
+            List<Frame> allFrames = new List<Frame>();
+            List<Animation> animations = new List<Animation>();
+            string texture = "";
 
+            using (StreamReader r = new StreamReader(path))
+            { 
+                //Metadata separate by |
+                string[] line = r.ReadLine().Split('|');
+                name = line[0];
+                texture = line[1];
+
+                //1. Framecount
+                int frameCount = int.Parse(r.ReadLine());
+
+                //2. Frames
+                for (int i = 0; i < frameCount; i++)
+                {
+                    string fName = r.ReadLine();
+                    List<Entity> frameParts = new List<Entity>();
+                    int fpCount = int.Parse(r.ReadLine());
+                    for (int j = 0; j < fpCount; j++)
+                    {
+                        string[] xy = r.ReadLine().Split('|');
+                        Vector2 pos = new Vector2(float.Parse(xy[0], CultureInfo.InvariantCulture), float.Parse(xy[1], CultureInfo.InvariantCulture));
+                        float rotation = float.Parse(r.ReadLine(), CultureInfo.InvariantCulture);
+                        float scale = float.Parse(r.ReadLine(), CultureInfo.InvariantCulture);
+                        bool flipped = bool.Parse(r.ReadLine());
+                        string[] rect = r.ReadLine().Split('|');
+                        Rectangle source = new Rectangle(int.Parse(rect[0]), int.Parse(rect[1]), int.Parse(rect[2]), int.Parse(rect[3]));
+                        Entity fp = new Entity()
+                        {
+                            position = pos,
+                            rotation = rotation,
+                            scale = scale,
+                            flipped = flipped,
+                            Source = source
+                        };
+                        frameParts.Add(fp);
+                    }
+                    Frame f = new Frame(frameParts, fName);
+                    allFrames.Add(f);
+                }
+
+                int animCount = int.Parse(r.ReadLine());
+
+                for (int i = 0; i < animCount; i++)
+                {
+                    string animName = r.ReadLine();
+                    List<KeyFrame> keyframes = new List<KeyFrame>();
+                    int kfCount = int.Parse(r.ReadLine());
+                    for (int j = 0; j < kfCount; j++)
+                    {
+                        int frameIdx = int.Parse(r.ReadLine());
+                        float duration = float.Parse(r.ReadLine(), CultureInfo.InvariantCulture);
+                        int scriptCount = int.Parse(r.ReadLine());
+                        string[] scripts = new string[scriptCount];
+                        for (int x = 0; x < scriptCount; x++)
+                        {
+                            scripts[x] = r.ReadLine();
+                        }
+                        keyframes.Add(new KeyFrame(allFrames[frameIdx], duration, scripts));
+                    }
+
+                    animations.Add(new Animation(keyframes, name));
+                }
             }
 
-            return new AnimationCollection();
+            return new AnimationCollection(name, allFrames, animations, texture);
         }
     }
 }

@@ -39,20 +39,6 @@ namespace OGAni.Frames
             }
         }
 
-        public string ToSaveString()
-        {
-            string s = "";
-
-            s += name + "\n";
-
-            foreach (Entity e in parts)
-            {
-                s += e.ToSaveString();
-            }
-
-            return s;
-        }
-
         public override string ToString()
         {
             return name;

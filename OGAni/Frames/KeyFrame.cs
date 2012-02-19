@@ -27,7 +27,6 @@ namespace OGAni.Frames
             this.frame = frameRef;
             this.duration = duration;
             this.scripts = scripts;
-            this.script = new KeyFrameScript(scripts);
         }
 
         public string[] Scripts
@@ -36,9 +35,18 @@ namespace OGAni.Frames
             set { scripts = value; }
         }
 
-        public void RunScript()
+        public Frame Frame
         {
-            script.Run();
+            get { return frame; }
+        }
+
+        public float Duration
+        {
+            get { return duration; }
+        }
+
+        public virtual void RunScript()
+        {
         }
 
         public void Draw(SpriteBatch sb, Vector2 position)
@@ -48,21 +56,6 @@ namespace OGAni.Frames
                 Entity f = frame.parts[i];
                 f.Draw(sb, position);
             }
-        }
-
-        public string ToSaveString()
-        {
-            string s = "";
-
-            s += frame.name + "\n";
-            s += duration.ToString(CultureInfo.InvariantCulture) + "\n";
-            s += scripts.Length + "\n";
-            for (int i = 0; i < scripts.Length; i++)
-            {
-                s += scripts[i] + "\n";
-            }
-            
-            return s;
         }
 
         public override string ToString()

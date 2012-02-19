@@ -70,21 +70,6 @@ namespace OGAni.Animations
             }
         }
 
-        public string ToSaveString()
-        {
-            string s = "";
-
-            s += name + "\n";
-            s += keyFrames.Count + "\n";
-
-            foreach (KeyFrame kf in keyFrames)
-            {
-                s += kf.ToSaveString();
-            }
-            
-            return s;
-        }
-
         public override string ToString()
         {
             return name;
