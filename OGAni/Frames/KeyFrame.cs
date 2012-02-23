@@ -49,13 +49,9 @@ namespace OGAni.Frames
         {
         }
 
-        public void Draw(SpriteBatch sb, Vector2 position)
+        public void Draw(SpriteBatch sb, Vector2 position, bool flipped)
         {
-            for (int i = 0; i < frame.parts.Count; i++)
-            {
-                Entity f = frame.parts[i];
-                f.Draw(sb, position);
-            }
+            frame.Draw(sb, position, flipped);
         }
 
         public override string ToString()

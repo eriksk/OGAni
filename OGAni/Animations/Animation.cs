@@ -61,12 +61,12 @@ namespace OGAni.Animations
             }
         }
 
-        public void Draw(SpriteBatch sb, Vector2 position)
+        public void Draw(SpriteBatch sb, Vector2 position, bool flipped)
         {
             if (keyFrames.Count > 0)
             {
                 KeyFrame kf = keyFrames[currentFrame];
-                kf.Draw(sb, position);
+                kf.Draw(sb, position, flipped);
             }
         }
 

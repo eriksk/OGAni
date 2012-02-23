@@ -247,7 +247,6 @@
             this.listBoxKeyframes.Name = "listBoxKeyframes";
             this.listBoxKeyframes.ScrollAlwaysVisible = true;
             this.listBoxKeyframes.Size = new System.Drawing.Size(191, 212);
-            this.listBoxKeyframes.Sorted = true;
             this.listBoxKeyframes.TabIndex = 0;
             this.listBoxKeyframes.SelectedIndexChanged += new System.EventHandler(this.listBoxKeyframes_SelectedIndexChanged);
             // 

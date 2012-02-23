@@ -102,7 +102,7 @@ namespace OGAniEditor
             {
                 Texture2D texture = Texture2D.FromStream(GraphicsDevice, File.OpenRead(path));
                 currentTexture = texture;
-                animations.texture = path.Split('/').Last();
+                animations.texture = path;
                 foreach (Frame f in animations.allFrames)
 	            {
 		            f.SetTexture(texture);                
@@ -116,6 +116,7 @@ namespace OGAniEditor
 
         public Frame NewFrame()
         {
+            selectedPart = -1;
             //Clone if selected
             Frame f = new Frame();
             if (selectedFrame != null)
@@ -250,7 +251,7 @@ namespace OGAniEditor
                     {
                         selectedPart = -1;
                     }
-                    else
+                    else if(key.IsKeyDown(Keys.LeftControl))
                     {
                         //Select
                         if (oldkey.IsKeyUp(Keys.D1) && key.IsKeyDown(Keys.D1))
@@ -355,7 +356,7 @@ namespace OGAniEditor
             if (selectedAnimation > -1)
             {
                 spriteBatch.Begin();
-                animations.animations[selectedAnimation].Draw(spriteBatch, animPos);
+                animations.animations[selectedAnimation].Draw(spriteBatch, animPos, false);
                 spriteBatch.End();
             }
 
@@ -367,7 +368,7 @@ namespace OGAniEditor
                 spriteBatch.Draw(pixel, new Rectangle((int)framePos.X, 0, 1, 720), Color.Black);
                 if (currentTexture != null)
                 {
-                    selectedFrame.Draw(spriteBatch, framePos);
+                    selectedFrame.Draw(spriteBatch, framePos, false);
                     if (selectedPart != -1)
                     {
                         Entity part = selectedFrame.parts[selectedPart];

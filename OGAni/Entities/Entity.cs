@@ -57,18 +57,5 @@ namespace OGAni.Entities
                 origin.Y = source.Height / 2f;
             }
         }
-
-        public void Draw(SpriteBatch sb, Vector2 position)
-        {
-            sb.Draw(texture, 
-                    this.position + position, 
-                    source, 
-                    Color.White, 
-                    rotation, 
-                    origin, 
-                    scale, 
-                    flipped ? SpriteEffects.FlipHorizontally : SpriteEffects.None,
-                    1f);
-        }
     }
 }

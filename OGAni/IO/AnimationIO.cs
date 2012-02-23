@@ -8,6 +8,8 @@ using OGAni.Frames;
 using OGAni.Entities;
 using System.Globalization;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace OGAni.IO
 {
@@ -67,6 +69,19 @@ namespace OGAni.IO
             }
         }
 
+        /// <summary>
+        /// Loads the animations and sets the appropriate texture
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        public static AnimationCollection Load(string path, ContentManager content, string assetPath)
+        {
+            AnimationCollection anis = Load(path);
+            Texture2D tex = content.Load<Texture2D>(assetPath + anis.AssetName);
+            anis.allFrames.ForEach(i => i.SetTexture(tex));
+            return anis;
+        }
         public static AnimationCollection Load(string path)
         {
             string name = "";

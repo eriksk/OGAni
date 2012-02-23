@@ -24,5 +24,28 @@ namespace OGAni.Animations
             this.animations = animations;
             this.texture = texture;
         }
+
+        public string AssetName
+        {
+            get
+            {
+                return texture.Split('\\').Last().Split('.').First();
+            }
+        }
+
+        public Animation this[string name]
+        {
+            get
+            {
+                for (int i = 0; i < animations.Count; i++)
+                {
+                    if (animations[i].name == name)
+                    {
+                        return animations[i];
+                    }
+                }
+                return null;
+            }
+        }
     }
 }
